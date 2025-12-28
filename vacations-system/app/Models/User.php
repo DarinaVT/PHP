@@ -21,7 +21,6 @@ use HasFactory, Notifiable;
         'email',
         'password',
         'is_admin',
-        'avatar',
     ];
 
     /**
