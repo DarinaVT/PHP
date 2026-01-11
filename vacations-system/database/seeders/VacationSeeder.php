@@ -34,6 +34,9 @@ class VacationSeeder extends Seeder
                 'organizer_id' => $organizer1->id,
                 'price' => 450.00,
                 'description' => 'Beautiful summer vacation on the Black Sea coast. Enjoy sandy beaches, warm weather, and vibrant nightlife.',
+                'city' => 'Varna',
+                'country' => 'Bulgaria',
+                'max_guests' => 4,
             ],
             [
                 'name' => 'Greek Islands Adventure',
@@ -44,6 +47,9 @@ class VacationSeeder extends Seeder
                 'organizer_id' => $organizer2->id,
                 'price' => 1200.00,
                 'description' => 'Explore the beautiful Greek islands. Visit Santorini, Mykonos, and Crete. Experience authentic Greek culture and cuisine.',
+                'city' => 'Santorini',
+                'country' => 'Greece',
+                'max_guests' => 2,
             ],
             [
                 'name' => 'Barcelona City Break',
@@ -54,6 +60,9 @@ class VacationSeeder extends Seeder
                 'organizer_id' => $organizer3->id,
                 'price' => 800.00,
                 'description' => 'Experience the vibrant culture of Barcelona. Visit Gaudi\'s masterpieces, enjoy tapas, and relax on the beach.',
+                'city' => 'Barcelona',
+                'country' => 'Spain',
+                'max_guests' => 2,
             ],
             [
                 'name' => 'Alpine Mountain Retreat',
@@ -64,6 +73,9 @@ class VacationSeeder extends Seeder
                 'organizer_id' => $organizer4->id,
                 'price' => 950.00,
                 'description' => 'Mountain getaway in the Swiss Alps. Hiking, skiing, and breathtaking views. Perfect for nature lovers.',
+                'city' => 'Zermatt',
+                'country' => 'Switzerland',
+                'max_guests' => 4,
             ],
             [
                 'name' => 'Mediterranean Cruise',
@@ -74,6 +86,9 @@ class VacationSeeder extends Seeder
                 'organizer_id' => $organizer5->id,
                 'price' => 1500.00,
                 'description' => 'Luxury cruise through the Mediterranean. Visit multiple ports, enjoy fine dining, and relax on deck.',
+                'city' => 'Athens',
+                'country' => 'Greece',
+                'max_guests' => 2,
             ],
             [
                 'name' => 'Road Trip Through Italy',
@@ -84,6 +99,9 @@ class VacationSeeder extends Seeder
                 'organizer_id' => $organizer1->id,
                 'price' => 1100.00,
                 'description' => 'Self-drive adventure through Italy. Visit Rome, Florence, and Venice at your own pace.',
+                'city' => 'Rome',
+                'country' => 'Italy',
+                'max_guests' => 4,
             ],
             [
                 'name' => 'Weekend in Paris',
@@ -94,6 +112,9 @@ class VacationSeeder extends Seeder
                 'organizer_id' => $organizer3->id,
                 'price' => 650.00,
                 'description' => 'Romantic weekend in the City of Light. Visit the Eiffel Tower, Louvre, and enjoy French cuisine.',
+                'city' => 'Paris',
+                'country' => 'France',
+                'max_guests' => 2,
             ],
             [
                 'name' => 'Beach Holiday in Thailand',
@@ -104,6 +125,9 @@ class VacationSeeder extends Seeder
                 'organizer_id' => $organizer2->id,
                 'price' => 1350.00,
                 'description' => 'Tropical paradise in Thailand. White sandy beaches, crystal clear water, and exotic cuisine.',
+                'city' => 'Phuket',
+                'country' => 'Thailand',
+                'max_guests' => 4,
             ],
             [
                 'name' => 'Scandinavian Tour',
@@ -114,6 +138,9 @@ class VacationSeeder extends Seeder
                 'organizer_id' => $organizer4->id,
                 'price' => 1400.00,
                 'description' => 'Explore the Nordic countries. Visit Stockholm, Copenhagen, and Oslo. Experience the midnight sun.',
+                'city' => 'Stockholm',
+                'country' => 'Sweden',
+                'max_guests' => 2,
             ],
             [
                 'name' => 'Budget Weekend Getaway',
@@ -124,6 +151,9 @@ class VacationSeeder extends Seeder
                 'organizer_id' => $organizer4->id,
                 'price' => 250.00,
                 'description' => 'Affordable weekend trip. Perfect for students and budget travelers. Explore nearby cities and attractions.',
+                'city' => 'Sofia',
+                'country' => 'Bulgaria',
+                'max_guests' => 4,
             ],
         ];
 
