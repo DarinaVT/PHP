@@ -63,9 +63,16 @@ class UserController extends Controller
             unset($validated['password']);
         }
 
+        $wasAdmin = $user->is_admin;
         $validated['is_admin'] = $request->has('is_admin');
+        $isRemovingOwnAdminRole = auth()->id() === $user->id && $wasAdmin && !$validated['is_admin'];
 
         $user->update($validated);
+
+        if ($isRemovingOwnAdminRole) {
+            return redirect()->route('home')
+                ->with('success', 'User updated successfully. Your admin access has been removed.');
+        }
 
         return redirect()->route('admin.users.index')
             ->with('success', 'User updated successfully.');

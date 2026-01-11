@@ -21,6 +21,18 @@ class Vacation extends Model
         'price',
         'image',
         'description',
+        'country',
+        'city',
+        'max_guests',
+        'detailed_description',
+        'included_services',
+        'not_included_services',
+        'program',
+        'departure_location',
+        'departure_time',
+        'return_location',
+        'return_time',
+        'external_url',
     ];
 
     protected $casts = [
@@ -39,20 +51,12 @@ class Vacation extends Model
         return $this->belongsTo(Organizer::class);
     }
 
-    // Calculate duration in days (accessor)
-    public function getDurationAttribute($value): int
+
+    public function getDurationAttribute(): int
     {
-        if ($value) {
-            return $value;
-        }
-        // Calculate from dates if duration not set
-        if ($this->start_date && $this->end_date) {
-            return $this->start_date->diffInDays($this->end_date) + 1;
-        }
-        return 0;
+        return $this->start_date->diffInDays($this->end_date) + 1;
     }
 
-    // Get image URL
     public function getImageUrlAttribute(): string
     {
         if ($this->image) {
