@@ -1,9 +1,10 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ATG Hotels - Find Your Perfect Getaway</title>
+    <title>Offers - ATG Hotels</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
@@ -51,81 +52,16 @@
         </div>
     </nav>
 
-    <div class="relative h-[600px] bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');">
-        <div class="absolute inset-0 bg-black bg-opacity-40"></div>
-        <div class="relative z-10 container mx-auto px-4 h-full flex flex-col justify-center items-center text-center">
-            <div class="flex items-center justify-center space-x-6 mb-4 text-white">
-                <div class="flex items-center">
-                    <i class="fas fa-sync-alt mr-2"></i>
-                    <span class="text-sm">10,000+ verified stays</span>
-                </div>
-                <div class="flex items-center">
-                    <i class="fas fa-star mr-2"></i>
-                    <span class="text-sm">4.8 Average guest rating</span>
-                </div>
-            </div>
-            
-            <h1 class="text-5xl md:text-6xl font-bold text-white mb-8">Hotels you trust, Flexibility you'll love.</h1>
-            
-            <form method="GET" action="{{ route('public.vacations.index') }}" class="w-full max-w-5xl bg-white rounded-lg shadow-xl p-4 flex flex-wrap gap-2 items-end">
-                <div class="flex-1 min-w-[200px] relative">
-                    <label class="block text-gray-700 font-semibold mb-2 text-left">
-                        <i class="fas fa-map-marker-alt text-gray-500"></i> Location
-                    </label>
-                    <input type="text" name="location" id="location_search" value="{{ request('location') }}" placeholder="Where you want to go?" autocomplete="off" class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500">
-                    <div id="location_autocomplete" class="hidden absolute z-10 w-full mt-1 bg-white border border-gray-300 rounded-lg shadow-lg max-h-60 overflow-y-auto"></div>
-                </div>
-                
-                <div class="flex-1 min-w-[150px]">
-                    <label class="block text-gray-700 font-semibold mb-2 text-left">
-                        <i class="far fa-calendar text-gray-500"></i> From
-                    </label>
-                    <input type="text" name="date_from" id="date_from" value="{{ request('date_from') }}" placeholder="Add date" class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500">
-                </div>
-                
-                <div class="flex-1 min-w-[150px]">
-                    <label class="block text-gray-700 font-semibold mb-2 text-left">
-                        <i class="far fa-calendar text-gray-500"></i> To
-                    </label>
-                    <input type="text" name="date_to" id="date_to" value="{{ request('date_to') }}" placeholder="Add date" class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500">
-                </div>
-                
-                <div class="flex-1 min-w-[150px]">
-                    <label class="block text-gray-700 font-semibold mb-2 text-left">
-                        <i class="fas fa-user text-gray-500"></i> Guests
-                    </label>
-                    <input type="number" name="guests" value="{{ request('guests', 1) }}" placeholder="Add guests" min="1" class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500">
-                </div>
-                
-                <button type="submit" class="bg-gray-800 hover:bg-gray-900 text-white px-8 py-3 rounded-lg font-semibold flex items-center">
-                    <i class="fas fa-search mr-2"></i> Search
-                </button>
-            </form>
-        </div>
-    </div>
-
     <div class="container mx-auto px-4 py-8">
-        @if($hasSearchParams)
-        <div class="bg-white rounded-lg shadow-md p-4 mb-8">
-            <form method="GET" action="{{ route('public.vacations.index') }}" class="flex flex-wrap gap-4 items-end">
-                @if(request('location'))
-                    <input type="hidden" name="location" value="{{ request('location') }}">
-                @endif
-                @if(request('date_from'))
-                    <input type="hidden" name="date_from" value="{{ request('date_from') }}">
-                @endif
-                @if(request('date_to'))
-                    <input type="hidden" name="date_to" value="{{ request('date_to') }}">
-                @endif
-                @if(request('guests'))
-                    <input type="hidden" name="guests" value="{{ request('guests') }}">
-                @endif
+        <h1 class="text-4xl font-bold text-gray-900 mb-8">All Offers</h1>
 
+        <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+            <form method="GET" action="{{ route('public.offers') }}" class="flex flex-wrap gap-4 items-end">
                 <div class="flex-1 min-w-[200px]">
-                    <label class="block text-gray-700 font-semibold mb-2 text-left">
+                    <label class="block text-gray-700 font-semibold mb-2">
                         <i class="fas fa-plane text-gray-500"></i> Transport Type
                     </label>
-                    <select name="transport_type_id" onchange="this.form.submit()" class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <select name="transport_type_id" onchange="this.form.submit()" class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-gray-500">
                         <option value="">All Types</option>
                         @foreach($transportTypes as $type)
                             <option value="{{ $type->id }}" {{ request('transport_type_id') == $type->id ? 'selected' : '' }}>
@@ -136,10 +72,10 @@
                 </div>
 
                 <div class="flex-1 min-w-[200px]">
-                    <label class="block text-gray-700 font-semibold mb-2 text-left">
+                    <label class="block text-gray-700 font-semibold mb-2">
                         <i class="fas fa-building text-gray-500"></i> Organizer
                     </label>
-                    <select name="organizer_id" onchange="this.form.submit()" class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <select name="organizer_id" onchange="this.form.submit()" class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-gray-500">
                         <option value="">All Organizers</option>
                         @foreach($organizers as $organizer)
                             <option value="{{ $organizer->id }}" {{ request('organizer_id') == $organizer->id ? 'selected' : '' }}>
@@ -150,26 +86,36 @@
                 </div>
 
                 <div class="flex-1 min-w-[200px]">
-                    <label class="block text-gray-700 font-semibold mb-2 text-left">
+                    <label class="block text-gray-700 font-semibold mb-2">
+                        <i class="far fa-calendar text-gray-500"></i> Date From
+                    </label>
+                    <input type="text" name="date_from" id="date_from" value="{{ request('date_from') }}" placeholder="Select date" class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-gray-500">
+                </div>
+
+                <div class="flex-1 min-w-[200px]">
+                    <label class="block text-gray-700 font-semibold mb-2">
+                        <i class="far fa-calendar text-gray-500"></i> Date To
+                    </label>
+                    <input type="text" name="date_to" id="date_to" value="{{ request('date_to') }}" placeholder="Select date" class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-gray-500">
+                </div>
+
+                <div class="flex-1 min-w-[200px]">
+                    <label class="block text-gray-700 font-semibold mb-2">
                         <i class="fas fa-sort text-gray-500"></i> Sort By
                     </label>
-                    <select name="sort_by" onchange="this.form.submit()" class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
-                        <option value="latest" {{ request('sort_by', 'latest') == 'latest' ? 'selected' : '' }}>Latest First</option>
+                    <select name="sort_by" onchange="this.form.submit()" class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-gray-500">
+                        <option value="latest" {{ request('sort_by') == 'latest' ? 'selected' : '' }}>Latest First</option>
                         <option value="price_low" {{ request('sort_by') == 'price_low' ? 'selected' : '' }}>Price: Low to High</option>
                         <option value="price_high" {{ request('sort_by') == 'price_high' ? 'selected' : '' }}>Price: High to Low</option>
                         <option value="date_asc" {{ request('sort_by') == 'date_asc' ? 'selected' : '' }}>Date: Earliest</option>
                         <option value="date_desc" {{ request('sort_by') == 'date_desc' ? 'selected' : '' }}>Date: Latest</option>
-                        <option value="duration_asc" {{ request('sort_by') == 'duration_asc' ? 'selected' : '' }}>Duration: Shortest</option>
-                        <option value="duration_desc" {{ request('sort_by') == 'duration_desc' ? 'selected' : '' }}>Duration: Longest</option>
+                        <option value="transport" {{ request('sort_by') == 'transport' ? 'selected' : '' }}>Transport Type</option>
+                        <option value="organizer" {{ request('sort_by') == 'organizer' ? 'selected' : '' }}>Organizer</option>
                     </select>
                 </div>
             </form>
         </div>
-        @endif
 
-        @if($hasSearchParams)
-        <h2 class="text-2xl font-bold mb-4">Available Vacations</h2>
-        
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             @forelse($vacations as $vacation)
                 <div class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 border border-gray-200">
@@ -186,7 +132,7 @@
                         </div>
                     </div>
                     
-                    <div class="p-4">
+                    <div class="p-6">
                         <h3 class="text-xl font-bold text-gray-900 mb-3">{{ $vacation->name }}</h3>
                         
                         <div class="space-y-2 mb-4">
@@ -225,8 +171,7 @@
                 </div>
             @empty
                 <div class="col-span-4 text-center py-12">
-                    <p class="text-gray-500 text-lg">No vacations found matching your criteria.</p>
-                    <a href="{{ route('public.vacations.index') }}" class="text-gray-900 hover:underline mt-4 inline-block font-semibold">Clear search and try again</a>
+                    <p class="text-gray-500 text-lg">No offers found.</p>
                 </div>
             @endforelse
         </div>
@@ -234,7 +179,6 @@
         <div class="mt-6">
             {{ $vacations->links() }}
         </div>
-        @endif
     </div>
 
     <script>
@@ -259,56 +203,6 @@
                 minDate: "today"
             });
         }
-
-        const locationInput = document.getElementById('location_search');
-        const autocompleteDiv = document.getElementById('location_autocomplete');
-        let autocompleteTimeout;
-
-        if (locationInput && autocompleteDiv) {
-            locationInput.addEventListener('input', function() {
-                const query = this.value.trim();
-                
-                clearTimeout(autocompleteTimeout);
-                
-                if (query.length < 2) {
-                    autocompleteDiv.classList.add('hidden');
-                    return;
-                }
-
-                autocompleteTimeout = setTimeout(function() {
-                    fetch(`{{ route('api.locations') }}?q=${encodeURIComponent(query)}`)
-                        .then(response => response.json())
-                        .then(data => {
-                            autocompleteDiv.innerHTML = '';
-                            if (data.length > 0) {
-                                data.forEach(item => {
-                                    const div = document.createElement('div');
-                                    div.className = 'px-4 py-2 hover:bg-gray-100 cursor-pointer';
-                                    div.textContent = item.name;
-                                    div.addEventListener('click', function() {
-                                        locationInput.value = item.name;
-                                        autocompleteDiv.classList.add('hidden');
-                                    });
-                                    autocompleteDiv.appendChild(div);
-                                });
-                                autocompleteDiv.classList.remove('hidden');
-                            } else {
-                                autocompleteDiv.classList.add('hidden');
-                            }
-                        })
-                        .catch(error => {
-                            console.error('Autocomplete error:', error);
-                        });
-                }, 300);
-            });
-
-            document.addEventListener('click', function(e) {
-                if (!locationInput.contains(e.target) && !autocompleteDiv.contains(e.target)) {
-                    autocompleteDiv.classList.add('hidden');
-                }
-            });
-        }
-
     </script>
 </body>
 </html>
